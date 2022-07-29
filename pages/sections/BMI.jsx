@@ -1,52 +1,50 @@
-import Head from 'next/head'
-import Link from 'next/link';
-import { useState, useEffect } from 'react';
-export default function Home() {
-  const [unlock, setUnlock] = useState(false);
-  return (
-    <div className="container">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+import React from 'react';
+import { useState } from "react";
+import Link from "next/link";
 
-      <main>
-        <h1 className="title">
-          Matti Hansen <h3>Portfolio</h3>
-          
-          
-        </h1>
-        <nav>
-        <Link href="/sections/Info">
-    <a>Info</a>
-  </Link>
-  <Link href="/sections/EducationalBackground">
-    <a>Educational background</a>
-  </Link>
-  <Link href="/sections/PreviousWork">
-    <a>Previous work</a>
-  </Link>
-  {unlock ?
-          <><Link href="/sections/BMI">
-            <a>BMI</a>
-          </Link><Link href="/sections/BMR">
-              <a>BMR</a>
-            </Link></>
-        :null}
-  </nav>
-          <div className='secret'>
-          <input type="text" id="secret" name="first" onChange={(data)=>{setUnlock(data.target.value=="Will work for money")}}/>
-          </div>
-          <div className='key'>
-          <h1>Will work for money</h1>
-          </div>
-      </main>
+const BMI = () => {
+    const [weight, setWeight] = useState(0);
+    const [height, setHeight] = useState(0);
+    const [bmi, setBMI] = useState(0);
+    return (
+        <div>
+            <div className='container'>
+            <nav>
+        <Link href="/">
+          <a>Home</a>
+        </Link>
+        
+        
+        
+      </nav>
+            <h1>BMI</h1>
+            
+                <label>Weight</label>
+                <input type="number" value={weight} onChange={(e) => setWeight(e.target.value)} />
+                <label>Height</label>
+                <input type="number" value={height} onChange={(e) => setHeight(e.target.value)} />
+                <button onClick={() => setBMI(weight/height*height)}>BMI {bmi}</button>
+                </div>
+                <style jsx global>{`
+                input {
+                    list-style: none;
+                    width: 6%;
+                    font-size: 1.5em;
+                    border-radius: 15px;
+                    text-align: center;
+                }
+                label {
+                    margin-top: 10px;
+                    font-size: 1.5em;
+                }
+                button {
+                    margin: 10px;
+                    height: 30px;
+                    width: 6%;
+                    font-size: 1.5em;
+                    border-radius: 15px;
 
-     
-
-     
-
-      <style jsx global>{`
+                }
       .key{
         position: absolute;
         bottom: max(0px, 90.0%);
@@ -243,6 +241,10 @@ export default function Home() {
           100% {
             background-position: 0% 50%;
           } `}</style>
-    </div>
-  )
+        </div>
+    
+    );
+    
 }
+
+export default BMI;

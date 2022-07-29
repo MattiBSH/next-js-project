@@ -1,98 +1,65 @@
-import Head from 'next/head'
-import Link from 'next/link';
-import { useState, useEffect } from 'react';
-export default function Home() {
-  const [unlock, setUnlock] = useState(false);
+import Link from "next/link";
+import { useState } from "react";
+
+export default function Info() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className="container">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <h1 className="title">Info</h1>
+      <nav>
+        <Link href="/">
+          <a>Home</a>
+        </Link>
 
-      <main>
-        <h1 className="title">
-          Matti Hansen <h3>Portfolio</h3>
-          
-          
-        </h1>
-        <nav>
-        <Link href="/sections/Info">
-    <a>Info</a>
-  </Link>
-  <Link href="/sections/EducationalBackground">
-    <a>Educational background</a>
-  </Link>
-  <Link href="/sections/PreviousWork">
-    <a>Previous work</a>
-  </Link>
-  {unlock ?
-          <><Link href="/sections/BMI">
-            <a>BMI</a>
-          </Link><Link href="/sections/BMR">
-              <a>BMR</a>
-            </Link></>
-        :null}
-  </nav>
-          <div className='secret'>
-          <input type="text" id="secret" name="first" onChange={(data)=>{setUnlock(data.target.value=="Will work for money")}}/>
-          </div>
-          <div className='key'>
-          <h1>Will work for money</h1>
-          </div>
-      </main>
+        <Link href="/sections/EducationalBackground">
+          <a>Educational background</a>
+        </Link>
+        <Link href="/sections/PreviousWork">
+          <a>Previous work</a>
+        </Link>
+      </nav>
+      <div className="mainContent">
+        <p className="description">
+          Hey there! I'm Matti Hansen, a software developer from Copenhagen,
+          Denmark. I love to create things that people can use to better their
+          lives and I'm always looking for new ways to make things better. I
+          develop for both backend and frontend in my current position and enjoy
+          the complexity of doing both. I am educated as a datamatiker and
+          currently working on my software development top up.
+        </p>
+      </div>
 
-     
-
-     
-
-      <style jsx global>{`
-      .key{
-        position: absolute;
-        bottom: max(0px, 90.0%);
-        font-size: 0.4em;
-        color: #1d94f5;
-        left: max(0px, 90.0%);
-        opacity: 0.1;
-      }
-        .secret {
-          position: absolute;
-  bottom: 0;
-  left: 0;
+      {isOpen == true ? (
+        <div className="contact">
+          <h2>Contact info </h2>
+          <h2>Phone: 60651098</h2>
+          <h2>Email: mattibenhansen@gmail.com</h2>
+        </div>
+      ) : (
+        <button onClick={() => setIsOpen(true)}>How to get in touch</button>
+      )}
+      <style jsx>{`
+        .contact {
+          align-items: center;
+          align-self: center;
+          text-align: center;
         }
         nav {
-          box-shadow: 0 1px 0px white;
+          box-shadow: 0 1px white;
         }
-
-        html,
-        body {
-          background: linear-gradient(-45deg, #99d1ff, #5eb7ff, #1d94f5, #008cff,#99d1ff, #5eb7ff, #1d94f5, #008cff,#f0b429);
-          background-size: 400% 400%;
-          animation: gradient 35s ease infinite;
-          height: 100vh;
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
+        button {
+          background-color: #50adfa;
+          color: white;
+          padding: 10px;
+          border-radius: 5px;
+          cursor: pointer;
+          font-size: 1.2em;
         }
-        
-        @keyframes gradient {
-          0% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-          100% {
-            background-position: 0% 50%;
-          }
+        .mainContent {
+          width: 50%;
+          color: black;
         }
-
-        * {
-          box-sizing: border-box;
-        }
-        
         .container {
           min-height: 100vh;
           padding: 0 0.5rem;
@@ -100,8 +67,17 @@ export default function Home() {
           flex-direction: column;
           justify-content: center;
           align-items: center;
+          background-color: #50adfa;
+          height: 100vh;
+          padding: 0;
+          margin: 0;
+          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+            sans-serif;
         }
-
+        p  {
+          font-size: 1.3rem;
+      }
         main {
           padding: 5rem 0;
           flex: 1;
@@ -111,13 +87,19 @@ export default function Home() {
           align-items: center;
         }
 
-        
         h3 {
           font-size: 2.5rem;
           color: #ffffff;  margin-bottom: 0
           font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
             Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
+            sans-serif; margin: 0
+        }
+
+        h2 {
+          font-size: 2rem;
+          margin: 0.05rem;
+          color: white;
+          text-shadow: 1px 1px black;
         }
 
         footer {
@@ -159,7 +141,7 @@ export default function Home() {
         }
 
         .title {
-          margin: 0;
+          margin: 1;
           line-height: 0.5;
           font-size: 4rem;
         }
@@ -171,7 +153,7 @@ export default function Home() {
 
         .description {
           line-height: 1.5;
-          font-size: 1.5rem;
+          font-size: 1.3rem; 
         }
 
         code {
@@ -233,16 +215,22 @@ export default function Home() {
             flex-direction: column;
           }
         }
-        @keyframes gradient {
-          0% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-          100% {
-            background-position: 0% 50%;
-          } `}</style>
+      `}</style>
+
+      <style jsx global>{`
+        html,
+        body {
+          padding: 0;
+          margin: 0;
+          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+            sans-serif;
+        }
+
+        * {
+          box-sizing: border-box;
+        }
+      `}</style>
     </div>
-  )
+  );
 }

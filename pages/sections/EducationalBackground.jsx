@@ -1,98 +1,35 @@
-import Head from 'next/head'
-import Link from 'next/link';
-import { useState, useEffect } from 'react';
-export default function Home() {
-  const [unlock, setUnlock] = useState(false);
+import Link from "next/link";
+
+export default function EducationalBackground() {
   return (
     <div className="container">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main>
-        <h1 className="title">
-          Matti Hansen <h3>Portfolio</h3>
-          
-          
-        </h1>
-        <nav>
+      <h1 className="title">Educational Background</h1>{" "}
+      <nav>
+        <Link href="/">
+          <a>Home</a>
+        </Link>
         <Link href="/sections/Info">
-    <a>Info</a>
-  </Link>
-  <Link href="/sections/EducationalBackground">
-    <a>Educational background</a>
-  </Link>
-  <Link href="/sections/PreviousWork">
-    <a>Previous work</a>
-  </Link>
-  {unlock ?
-          <><Link href="/sections/BMI">
-            <a>BMI</a>
-          </Link><Link href="/sections/BMR">
-              <a>BMR</a>
-            </Link></>
-        :null}
-  </nav>
-          <div className='secret'>
-          <input type="text" id="secret" name="first" onChange={(data)=>{setUnlock(data.target.value=="Will work for money")}}/>
-          </div>
-          <div className='key'>
-          <h1>Will work for money</h1>
-          </div>
-      </main>
-
-     
-
-     
-
-      <style jsx global>{`
-      .key{
-        position: absolute;
-        bottom: max(0px, 90.0%);
-        font-size: 0.4em;
-        color: #1d94f5;
-        left: max(0px, 90.0%);
-        opacity: 0.1;
-      }
-        .secret {
-          position: absolute;
-  bottom: 0;
-  left: 0;
-        }
+          <a>Info</a>
+        </Link>
+        <Link href="/sections/PreviousWork">
+          <a>Previous work</a>
+        </Link>
+      </nav>
+      
+         <br/>
+            <h3><u>2018 July</u></h3>
+            <p>Finished STX at Borupgaard Gymnasium</p>
+            <h3><u>2022 January</u></h3>
+            <p>Started working at MeeW as a fullstack developer</p>
+            <p>Finished my degree AP Computer science at CPH Business in Lyngby</p>
+            <p>Started top up in software development at cph business in Lyngby</p>
+            <h3><u>2022 May</u></h3>
+            <p>Completed first semester of software development at cph business in Lyngby</p>
+      
+      <style jsx>{`
         nav {
           box-shadow: 0 1px 0px white;
         }
-
-        html,
-        body {
-          background: linear-gradient(-45deg, #99d1ff, #5eb7ff, #1d94f5, #008cff,#99d1ff, #5eb7ff, #1d94f5, #008cff,#f0b429);
-          background-size: 400% 400%;
-          animation: gradient 35s ease infinite;
-          height: 100vh;
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-        }
-        
-        @keyframes gradient {
-          0% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-          100% {
-            background-position: 0% 50%;
-          }
-        }
-
-        * {
-          box-sizing: border-box;
-        }
-        
         .container {
           min-height: 100vh;
           padding: 0 0.5rem;
@@ -100,6 +37,13 @@ export default function Home() {
           flex-direction: column;
           justify-content: center;
           align-items: center;
+          background-color: #50adfa;
+          height: 100vh;
+          padding: 0;
+          margin: 0;
+          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+            sans-serif;
         }
 
         main {
@@ -111,14 +55,17 @@ export default function Home() {
           align-items: center;
         }
 
-        
-        h3 {
-          font-size: 2.5rem;
-          color: #ffffff;  margin-bottom: 0
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
+        p  {
+            font-size: 1.3rem;
         }
+       
+        h3 {
+            font-size: 2.0rem;
+            color: #ffffff;  margin:0.5rem;
+            font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+              Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+              sans-serif; 
+          }
 
         footer {
           width: 100%;
@@ -132,7 +79,9 @@ export default function Home() {
         footer img {
           margin-left: 0.5rem;
         }
-
+        p  {
+            font-size: 1.3rem;
+        }
         footer a {
           display: flex;
           justify-content: center;
@@ -159,7 +108,7 @@ export default function Home() {
         }
 
         .title {
-          margin: 0;
+          margin: 1;
           line-height: 0.5;
           font-size: 4rem;
         }
@@ -233,16 +182,21 @@ export default function Home() {
             flex-direction: column;
           }
         }
-        @keyframes gradient {
-          0% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-          100% {
-            background-position: 0% 50%;
-          } `}</style>
+      `}</style>
+      <style jsx global>{`
+        html,
+        body {
+          padding: 0;
+          margin: 0;
+          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+            sans-serif;
+        }
+
+        * {
+          box-sizing: border-box;
+        }
+      `}</style>
     </div>
-  )
+  );
 }

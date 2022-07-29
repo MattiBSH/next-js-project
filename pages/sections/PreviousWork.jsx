@@ -1,98 +1,55 @@
-import Head from 'next/head'
-import Link from 'next/link';
-import { useState, useEffect } from 'react';
-export default function Home() {
-  const [unlock, setUnlock] = useState(false);
+import Link from "next/link";
+
+export default function PreviousWork() {
   return (
     <div className="container">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main>
-        <h1 className="title">
-          Matti Hansen <h3>Portfolio</h3>
-          
-          
-        </h1>
-        <nav>
+      <h1 className="title">Previous Work</h1>
+      <nav>
+        <Link href="/">
+          <a>Home</a>
+        </Link>
         <Link href="/sections/Info">
-    <a>Info</a>
-  </Link>
-  <Link href="/sections/EducationalBackground">
-    <a>Educational background</a>
-  </Link>
-  <Link href="/sections/PreviousWork">
-    <a>Previous work</a>
-  </Link>
-  {unlock ?
-          <><Link href="/sections/BMI">
-            <a>BMI</a>
-          </Link><Link href="/sections/BMR">
-              <a>BMR</a>
-            </Link></>
-        :null}
-  </nav>
-          <div className='secret'>
-          <input type="text" id="secret" name="first" onChange={(data)=>{setUnlock(data.target.value=="Will work for money")}}/>
-          </div>
-          <div className='key'>
-          <h1>Will work for money</h1>
-          </div>
-      </main>
-
-     
-
-     
-
-      <style jsx global>{`
-      .key{
-        position: absolute;
-        bottom: max(0px, 90.0%);
-        font-size: 0.4em;
-        color: #1d94f5;
-        left: max(0px, 90.0%);
-        opacity: 0.1;
-      }
-        .secret {
-          position: absolute;
-  bottom: 0;
-  left: 0;
-        }
+          <a>Info</a>
+        </Link>
+        <Link href="/sections/EducationalBackground">
+          <a>Educational background</a>
+        </Link>
+        
+        
+      </nav>
+      <div className="mainContent">
+        <p className="description">
+          <u>
+            <h4><b>Languages and Frameworks.</b></h4>
+          </u>{" "}
+         
+          React and flutter has been the ones that I have used the most in
+          frontend development. React has been mostly used for web development
+          while flutter has been used for web adminstration panels in
+          combination with an app In backend development I have used Node.js,
+          Java, and Python. With Java I have used Spring, Hibernate, and Spring
+          Boot. With Python I have used Django, Flask. I have also used
+          TypeScript, and Vue but mostly in a hobbyist way.
+          
+          
+          <u>
+            <h4><b>Tooling</b></h4>
+          </u>
+          I worked on a decent sized project where we used Firebase and
+          firestore as a backend. For every project in my education and work we
+          have always used Git and GitHub for version control. During my
+          internship I worked with AWS storing the server of the backend and all
+          the images.
+        </p>
+      </div>
+      <style jsx>{`
         nav {
           box-shadow: 0 1px 0px white;
         }
-
-        html,
-        body {
-          background: linear-gradient(-45deg, #99d1ff, #5eb7ff, #1d94f5, #008cff,#99d1ff, #5eb7ff, #1d94f5, #008cff,#f0b429);
-          background-size: 400% 400%;
-          animation: gradient 35s ease infinite;
-          height: 100vh;
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
+        .mainContent {
+          width: 30%;
+          color: black;
         }
-        
-        @keyframes gradient {
-          0% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-          100% {
-            background-position: 0% 50%;
-          }
-        }
-
-        * {
-          box-sizing: border-box;
-        }
-        
         .container {
           min-height: 100vh;
           padding: 0 0.5rem;
@@ -100,8 +57,17 @@ export default function Home() {
           flex-direction: column;
           justify-content: center;
           align-items: center;
+          background-color: #50adfa;
+          height: 100vh;
+          padding: 0;
+          margin: 0;
+          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+            sans-serif;
         }
-
+        p  {
+          font-size: 1.3rem;
+      }
         main {
           padding: 5rem 0;
           flex: 1;
@@ -114,10 +80,14 @@ export default function Home() {
         
         h3 {
           font-size: 2.5rem;
-          color: #ffffff;  margin-bottom: 0
+          color: #ffffff;  margin-bottom: 0; margin-top: 0;
           font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
             Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
+            sans-serif; 
+        }
+        h4 {
+          font-size: 2.2rem;
+          color: #ffffff; margin:1rem;
         }
 
         footer {
@@ -159,7 +129,7 @@ export default function Home() {
         }
 
         .title {
-          margin: 0;
+          margin: 1;
           line-height: 0.5;
           font-size: 4rem;
         }
@@ -233,16 +203,22 @@ export default function Home() {
             flex-direction: column;
           }
         }
-        @keyframes gradient {
-          0% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-          100% {
-            background-position: 0% 50%;
-          } `}</style>
+      `}</style>
+
+      <style jsx global>{`
+        html,
+        body {
+          padding: 0;
+          margin: 0;
+          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+            sans-serif;
+        }
+
+        * {
+          box-sizing: border-box;
+        }
+      `}</style>
     </div>
-  )
+  );
 }
